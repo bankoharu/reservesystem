@@ -17,9 +17,13 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
    Route::get('reserve/create', 'Admin\ReserveController@add'); 
+   Route::post('reserve/create', 'Admin\ReserveController@create');
     
    Route::get('cake/create','Admin\CakeController@add');
+   Route::post('cake/create', 'Admin\CakeController@create');
    Route::get('cake/edit','Admin\CakeController@edit');
+   Route::post('cake/edit','Admin\CakeController@update');
+   Route::get('cake', 'Admin\CakeController@index');
    
 });
 Auth::routes();
